@@ -186,6 +186,13 @@ body {
   border-bottom: 1px solid #d4af37;
 }
 
+.vm-line {
+  width: 80%;
+  height: 1px;
+  background: #151515;
+  margin: 0 auto;
+}
+
 .vm-column h3 {
   font-family: "Playfair Display", serif;
   font-size: 1.4rem;
@@ -324,14 +331,17 @@ body {
 
 /* product cards */
 .prod-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    justify-content: center;
+    gap: 2rem;
 }
 
 .prod-card {
   background: #08080a;
+  width: 330px;
+  max-width: 100%;
   border-radius: 14px;
   padding: 1.2rem 1.2rem 1.4rem;
   border: 1px solid #151515;
@@ -640,6 +650,39 @@ body {
   .benefit-inner {
     grid-template-columns: 1fr;
   }
+
+  /* MOBILE FIX CONTACT SECTION */
+@media (max-width: 600px) {
+    .contact-inner {
+        flex-direction: column; /* dari 2 kolom → 1 kolom */
+        gap: 30px;              /* jarak antar section */
+    }
+
+    .contact-left,
+    .contact-right {
+        width: 100%;
+    }
+
+    /* Map full width device */
+    .map-wrapper {
+        width: 100% !important;
+        height: auto;
+    }
+
+    .map-wrapper iframe {
+        width: 100% !important;
+        height: 260px; /* bisa disesuaikan */
+    }
+
+    /* Center social media */
+    .contact-right {
+        margin-left: 0 !important;
+    }
+
+    .social-list {
+        gap: 20px;
+    }
+}
 
   .prod-grid {
     grid-template-columns: 1fr;
