@@ -11,19 +11,56 @@
 
   <link rel="stylesheet" href="css/style.css">
 </head>
+
+<script>
+function order(productName) {
+    const msg = `Halo Admin, Saya tertarik dengan produk ${productName}. Apa keunggulan dari varian itu?`;
+    const url = "https://wa.me/6289529044377?text=" + encodeURIComponent(msg);
+    window.open(url, '_blank');
+}
+
+// Animasi klik ripple
+document.querySelectorAll(".btn-buy").forEach(btn => {
+    btn.addEventListener("click", function (e) {
+        // posisi ripple
+        let x = e.offsetX;
+        let y = e.offsetY;
+
+        this.style.setProperty("--x", x + "px");
+        this.style.setProperty("--y", y + "px");
+
+        // trigger animasi
+        this.classList.remove("clicked");
+        void this.offsetWidth; 
+        this.classList.add("clicked");
+    });
+});
+</script>
+
+
 <body>
 
   <!-- TOP NAV BAR -->
   <header class="topbar">
-    <div class="container top-inner">
-      <div class="top-left"></div>
-      <nav class="top-nav">
-        <a href="#home">Home</a>
-        <a href="#product">Product</a>
-        <a href="#contact">Contact</a>
-      </nav>
+    <div class="top-inner">
+
+        <!-- LOGO KIRI -->
+        <div class="nav-logo">
+            <a href="#home">
+                <img src="img/logo.png" alt="CAWINE Logo">
+            </a>
+        </div>
+
+        <!-- MENU KANAN -->
+        <nav class="top-nav">
+            <a href="#home">HOME</a>
+            <a href="#product">PRODUCT</a>
+            <a href="#contact">CONTACT</a>
+        </nav>
+
     </div>
-  </header>
+</header>
+
 
   <!-- HERO + VISI MISI -->
   <section id="home" class="hero">
@@ -38,8 +75,8 @@
       <h2 class="hero-subtitle">Coffé Wine</h2>
 
       <p class="hero-text">
-        Experience the perfect blend of premium coffee dengan
-        nuansa elegan terinspirasi dari budaya wine.
+        Pengalaman sempurna kopi premium
+        nuansa elegan dengan sensasi rasa wine.
       </p>
 
       <a href="#product" class="btn-hero">Explore Now</a>
@@ -49,8 +86,8 @@
         <div class="vm-column">
           <h3>VISI</h3>
           <p>
-            Menghadir-kan pengalaman menimuti kopi premium dengan xentuhan rasa
-            elegan yang terinspirasi dari budayawne.
+            Menghadirkan pengalaman menikmati kopi premium dengan sentuhan rasa
+            elegan untuk memaksimalkan setiap suasana.
           </p>
         </div>
 
@@ -59,10 +96,10 @@
         <div class="vm-column">
           <h3>MISI</h3>
           <ul>
-            <li>Mengempangkan produk kopi berstanar Internasional.</li>
-            <li>Menciptakan ekosistem pengalman pelanggari yang mewah.</li>
-            <li>Mengufamakan kualitas bui kopi terbaik.</li>
-            <li>Menghadilikan Inavasi rasa yang berkelas.</li>
+            <li>Mengembangkan produk kopi berstanar Internasional.</li>
+            <li>Menciptakan ekosistem pengalaman mewah.</li>
+            <li>Mengutamakan kualitas biji kopi terbaik.</li>
+            <li>Menghadilikan Inovasi rasa berkelas.</li>
           </ul>
         </div>
       </div>
@@ -71,29 +108,33 @@
 
   <!-- BENEFITS BAR -->
   <section class="benefit-bar">
+    <div class="benefit-title">BENEFIT</div>
+
+  
+  <section class="benefit-bar">
     <div class="container benefit-inner">
       <div class="benefit-item">
         <div class="benefit-icon">🍃</div>
-        <h4>Premium<br>Quality Benns</h4>
-        <p>Best selected beens from or ter premations.</p>
+        <h4>Biji Kopi<br>Kualitas Premium</h4>
+        <p>Biji kopi terbaik yang telah di fermentasi</p>
       </div>
 
       <div class="benefit-item">
         <div class="benefit-icon">🌿</div>
-        <h4>Exclusive<br>Taste Innovation</h4>
-        <p>Unique blends with wire inspired aroma.</p>
+        <h4>Selera<br>Inovasi</h4>
+        <p>Keunikan blending yang menghadirkan aroma wine</p>
       </div>
 
       <div class="benefit-item">
         <div class="benefit-icon">✔</div>
-        <h4>Fast<br>Delivery Service</h4>
-        <p>Fast Secure and reliable.</p>
+        <h4>Prioritas<br>Pengiriman</h4>
+        <p>Quality Check yang detail dengan memprioritaskan waktu</p>
       </div>
 
       <div class="benefit-item">
         <div class="benefit-icon">🎁</div>
-        <h4>Membership<br>Raward</h4>
-        <p>Points, decounts, exclusive access.</p>
+        <h4>Reward<br>Berkala</h4>
+        <p>Loyalitas konsumen akan menjadi keunggulan tersendiri</p>
       </div>
     </div>
   </section>
@@ -109,52 +150,52 @@
         <!-- 1 -->
         <article class="prod-card">
           <div class="prod-image">
-            <div class="prod-pack">CAWINE</div>
+            <img class="prod-photo" src="img/sampel.png" alt="Special Bold">
           </div>
           <div class="prod-body">
-            <h3>CAWINE<br>Arabied Signature</h3>
-            <p class="prod-price-old">Rp 126.900</p>
-            <p class="prod-price">Rp 96.000</p>
-            <button class="btn-buy">Buy Now</button>
+            <h3>Special Bold</h3>
+            <p class="prod-price-old">Rp 110.900</p>
+            <p class="prod-price">Rp 99.000</p>
+            <button class="btn-buy" onclick="order('Special Bold')">Beli Sekarang</button>
           </div>
         </article>
 
         <!-- 2 -->
         <article class="prod-card">
           <div class="prod-image">
-            <div class="prod-pack">CAWINE</div>
+            <img class="prod-photo" src="img/sampel.png" alt="Robusta Dark Wine">
           </div>
           <div class="prod-body">
-            <h3>CAWINE<br>Robusta Dark Wine</h3>
-            <p class="prod-price-old">Rp 85.200</p>
-            <p class="prod-price">Rp 83.800</p>
-            <button class="btn-buy">Buy Now</button>
+            <h3>Robusta Dark Wine</h3>
+            <p class="prod-price-old">Rp 105.000</p>
+            <p class="prod-price">Rp 89.000</p>
+            <button class="btn-buy" onclick="order('Robusta Dark Wine')">Beli Sekarang</button>
           </div>
         </article>
 
         <!-- 3 -->
         <article class="prod-card">
           <div class="prod-image">
-            <div class="prod-pack">CAWINE</div>
+            <img class="prod-photo" src="img/sampel.png" alt="Arabica Light">
           </div>
           <div class="prod-body">
-            <h3>CAWINE<br>Latte Wine Bend</h3>
-            <p class="prod-price-old">Rp 65.200</p>
-            <p class="prod-price">Rp 38.230</p>
-            <button class="btn-buy">Buy Now</button>
+            <h3>Arabica Light</h3>
+            <p class="prod-price-old">Rp 105.000</p>
+            <p class="prod-price">Rp 89.000</p>
+            <button class="btn-buy" onclick="order('Arabica Light')">Beli Sekarang</button>
           </div>
         </article>
 
         <!-- 4 -->
         <article class="prod-card">
-          <div class="prod-image small">
-            <div class="prod-pack">LATTE</div>
+          <div class="prod-image">
+            <img class="prod-photo" src="img/sampel.png" alt="Robusta Light">
           </div>
           <div class="prod-body">
-            <h3>LATTE<br>Wine Biend</h3>
-            <p class="prod-price-old">Rp 58.900</p>
-            <p class="prod-price">Rp 38.000</p>
-            <button class="btn-buy">Buy Now</button>
+            <h3>Robusta Light</h3>
+            <p class="prod-price-old">Rp 105.000</p>
+            <p class="prod-price">Rp 89.000</p>
+            <button class="btn-buy" onclick="order('Robusta Light')">Beli Sekarang</button>
           </div>
         </article>
       </div>
@@ -163,30 +204,60 @@
 
   <!-- CONTACT -->
   <section id="contact" class="contact-section">
-    <div class="container contact-inner">
-      <div>
-        <h3>Alamat Kami</h3>
-        <p>Silakan hubungi kami untuk pemesanan dan kolaborasi.</p>
-        <div class="map-wrapper">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=-7.626738,112.801453"
-            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </div>
+  <div class="container contact-inner">
 
-      <div class="contact-right">
-        <h4>Social Media</h4>
-        <p class="small">
-          Hubungi Kami Untuk Lebih Lanjut
-        </p>
+    <!-- KIRI -->
+    <div class="contact-left">
+      <h3>Alamat Kami</h3>
 
-        <div class="contact-links">
-          <a href="https://www.instagram.com/winecoffeepasuruan?igsh=MThxYWtwcDBjdHk4Mg==" target="_blank">Open Instagram</a>
-          <a href="https://www.tiktok.com/@coffeewinepasuruan?_r=1&_t=ZS-91RsltFf1lZ" target="_blank">Open TikTok</a>
-        </div>
+      <div class="map-wrapper">
+        <iframe
+          src="https://www.google.com/maps?q=-7.774577,112.746460&hl=id&z=17&output=embed"
+          width="100%"
+          height="320"
+          style="border:0; border-radius: 14px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
     </div>
-  </section>
+
+    <!-- KANAN -->
+    <div class="contact-right">
+      <h3>Social Media</h3>
+
+      <div class="social-list">
+
+        <!-- Instagram -->
+        <div class="social-item">
+          <a href="https://instagram.com/cawine.official" target="_blank" class="social-link">
+          <img src="img/logo-instagram.png" alt="Instagram" class="social-icon">
+          <span>Cawine | Wine Not Wine</span>
+          </a>
+        </div>
+
+        <!-- TikTok -->
+        <div class="social-item">
+          <a href="https://www.tiktok.com/@cawine.winecoffee" target="_blank" class="social-link">
+          <img src="img/logo-tiktok.png" alt="TikTok" class="social-icon">
+          <span>Cawine | Wine Not Wine</span>
+          </a>
+        </div>
+
+        <!-- WhatsApp -->
+        <div class="social-item">
+          <a href="https://wa.me/6289529044377" target="_blank" class="social-link">
+          <img src="img/logo-whatsapp.png" alt="WhatsApp" class="social-icon">
+          <span>Admin Cawine</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
 
   <footer class="footer">
     <div class="container footer-inner">

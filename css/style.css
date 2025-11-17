@@ -43,36 +43,74 @@ body {
   width: 100%;
   z-index: 9999;
   background: #050505;
+  z-index: 9999;
+  box-shadow: 0 4px 18px rgba(230, 195, 0, 0.35);
+  transition: 0.3s ease;
 }
 
+.topbar.scrolled {
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.35);
+}
+
+/* Wrapper navbar */
 .top-inner {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: flex-end;
-  padding: 1.5rem 0;
-  position: relative;
-  z-index: 10000;
+  padding: 10px 40px;
 }
 
+/* Logo kiri */
+.nav-logo img {
+  width: 48px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6));
+  cursor: pointer;
+}
+
+/* Menu kanan */
 .top-nav {
   display: flex;
-  gap: 1.8rem;
+  gap: 35px;
 }
 
 .top-nav a {
-  text-decoration: none;
-  color: #f7f3ea;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 0.85rem;
+  color: #ffffff;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+
+.top-nav a:hover {
+  color: #d4a63f; /* gold */
+}
+
+.top-nav a,
+.mobile-nav a {
+    text-decoration: none;
+}
+
+.top-nav a.active {
+  color: #d4a63f;
+}
+
+.mobile-menu {
+  padding: 15px 20px;
 }
 
 .top-nav a:hover {
   color: var(--gold-soft);
 }
 
+.mobile-nav a.active {
+  color: #d4a63f;
+}
+
 /* HERO */
 .hero {
+  padding-top: 60px;
   position: relative;
   background: #050505;
   padding-bottom: 3rem;
@@ -145,7 +183,7 @@ body {
   grid-template-columns: 1fr auto 1fr;
   column-gap: 3.5rem;
   padding-bottom: 2.8rem;
-  border-bottom: 1px solid #151515;
+  border-bottom: 1px solid #d4af37;
 }
 
 .vm-column h3 {
@@ -180,6 +218,16 @@ body {
 .benefit-bar {
   background: #050505;
   padding: 1.8rem 0 2.1rem;
+}
+
+.benefit-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .benefit-inner {
@@ -292,31 +340,37 @@ body {
 }
 
 .prod-image {
-  background: radial-gradient(circle at top, rgba(0, 0, 0, 0.9), #050505 60%);
+  position: relative;
+  height: 180px;
+  background: radial-gradient(circle at top, rgba(0,0,0,0.9), #050505 60%);
   border-radius: 10px;
-  padding: 2rem 0 2.4rem;
-  text-align: center;
-  margin-bottom: 1rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prod-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* gambar tetap rapi, tidak pecah */
+  z-index: 2;
+  filter: drop-shadow(0 0 8px rgba(212,175,55,0.3)); /* efek elegan */
+  transition: .3s ease;
+}
+
+.prod-image:hover .prod-photo {
+  transform: scale(1.06); /* sedikit membesar saat hover */
 }
 
 .prod-image.small {
   padding: 1.5rem 0 2rem;
 }
 
-.prod-pack {
-  display: inline-block;
-  padding: 0.4rem 0.9rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  font-family: "Playfair Display", serif;
-  letter-spacing: 0.18em;
-  font-size: 0.82rem;
-  color: var(--gold-soft);
-}
-
 .prod-body h3 {
   font-size: 0.98rem;
   line-height: 1.4;
+  margin-top: 0.9rem;
 }
 
 .prod-price-old {
@@ -344,23 +398,114 @@ body {
   font-size: 0.85rem;
 }
 
-/* CONTACT SECTION (simple) */
+.btn-buy:hover {
+  color: #c99f35; /* warna gold */
+  transform: scale(1.05);
+  transition: 0.25s ease;
+}
+
+/* CONTACT SECTION */
+/* Contact Layout */
+.contact-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+/* Kiri & kanan sama tinggi */
+.contact-left,
+.contact-right {
+  flex: 1;
+}
+
+/* Judul */
+.contact-left h3,
+.contact-right h3 {
+  font-size: 24px;
+  color: #d4a63f;
+  margin-bottom: 10px;
+}
+
+/* Map styling */
+.map-wrapper iframe {
+  width: 100%;
+  height: 300px;
+  border: 2px solid #d4a63f;
+  border-radius: 12px;
+}
+
+/* Social Media List */
+.social-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+/* Social Item*/
+.social-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-icon {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  filter: brightness(100%);
+}
+
+.social-item span {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: 0.2s ease;
+}
+
+.social-link:hover {
+  color: #d4a63f; /* warna gold */
+  transform: translateX(4px);
+}
+
 .contact-section {
   background: #050505;
   padding: 3rem 0 3.2rem;
-  border-top: 1px solid #111;
+  position: relative;
 }
 
+.contact-section::before {
+  content: "";
+  width: 80%;
+  height: 1px;
+  background: #d4af37;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.8;
+}
+
+
 .contact-inner {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 2rem;
+  display: flex;
+  align-items: flex-start;  
+  gap: 60px;
 }
 
 .contact-inner h3,
 .contact-inner h4 {
   font-family: "Playfair Display", serif;
-  color: var(--gold-soft);
+  color: #d4a63f;
   margin-bottom: 0.4rem;
 }
 
@@ -401,18 +546,66 @@ body {
   text-decoration: none;
 }
 
+.contact-left p 
+.contact-right p {
+    margin-top: 12px;
+    margin-bottom: 20px; /* jarak paragraf dengan map */
+}
+
+.map-wrapper {
+    margin-top: 10px;
+    width: 600px;
+}
+
+/* Styling Social Media */
+.contact-right {
+    margin-left: 60px; /* bikin lebih dekat ke tengah */
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 30px; /* jarak antar baris */
+}
+
+.social-item img {
+    width: 30px;
+    height: 30px;
+    filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.6));
+}
+
+.social-item a {
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.social-item a:hover {
+    color: #d4af37;
+}
+
 /* FOOTER */
 .footer {
   background: #050505;
-  border-top: 1px solid #111;
   padding: 1.2rem 0 1.8rem;
+  position: relative;
+  text-align: center; 
 }
 
-.footer-inner {
-  text-align: center;
-  color: var(--text-muted);
-  font-size: 0.8rem;
+.footer::before {
+  content: "";
+  width: 80%;
+  height: 1px;
+  background: #d4af37;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.8;
 }
+
 
 /* SIMPLE RESPONSIVE */
 @media (max-width: 900px) {
