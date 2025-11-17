@@ -700,3 +700,37 @@ body {
     font-size: 1.05rem;
   }
 }
+
+/* === FIX MOBILE + TABLET CONTACT SECTION === */
+@media (max-width: 900px) {
+
+    /* Paksa jadi 1 kolom */
+    .contact-section .contact-inner {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 35px !important;
+        width: 100% !important;
+    }
+
+    /* Pastikan map full width */
+    .contact-section .map-wrapper {
+        width: 100% !important;
+        margin-top: 10px !important;
+    }
+
+    .contact-section .map-wrapper iframe {
+        width: 600px !important;
+        height: 300px !important;
+    }
+
+    /* Social media ke bawah */
+    .contact-section .contact-right {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-top: 10px !important;
+    }
+
+    .contact-section .social-item {
+        margin-bottom: 18px !important;
+    }
+}
